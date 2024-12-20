@@ -153,6 +153,14 @@ public class FrmCuentaBancaria extends JFrame {
             return;
         }
 
+        // Validar si el número de cuenta ya existe
+        for (CuentaBancaria cuenta : cuentas) {
+            if (cuenta.getNumeroCuenta().equals(numeroCuenta)) {
+                JOptionPane.showMessageDialog(this, "El número de cuenta ya existe.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        }
+
         CuentaBancaria cuenta = new CuentaBancaria(numeroCuenta, titular);
         cuentas.add(cuenta);
 
